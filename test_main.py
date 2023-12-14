@@ -9,3 +9,8 @@ def test_helloworld():
 	assert response.json() == {
 		"Hello": "World"
 		}
+
+def test_get_movie_reviews():
+	response = client.get("/moviereviews/cars")
+	assert response.status_code == 200
+	assert "cars" in response.json()[0]["title"].lower() 
