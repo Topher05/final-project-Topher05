@@ -12,4 +12,7 @@ def test_movie_review_full_description():
 Twitter: https://twitter.com/theDMatthews
 Instagram: https://www.instagram.com/neat_dylan/?hl=en"""
 
+def test_movie_review_diff_langauge():
+	new_lang_response = Youtube.movie_review_diff_langauge('Cars', "zh-Hans")
+	assert "汽车" in new_lang_response[0]["title"]
 	

@@ -22,3 +22,8 @@ def test_get_movie_review_full_description():
 
 Twitter: https://twitter.com/theDMatthews
 Instagram: https://www.instagram.com/neat_dylan/?hl=en"""
+
+def test_get_movie_review_diff_langauge():
+	response = client.get("/moviereviews/es/Cars")
+	assert response.status_code == 200
+	assert "cars" in response.json()[0]["title"].lower() 
