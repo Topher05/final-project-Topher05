@@ -14,3 +14,7 @@ def get_movie_reviews(movie_name):
 @app.get("/descriptions/{video_id}")
 def get_movie_review_full_description(video_id):
     return Youtube.movie_review_full_description(video_id)
+
+@app.get("/moviereviews/{language}/{movie_name}")
+def get_movie_review_diff_langauge(movie_name, language):
+    return Youtube.movie_review_diff_langauge(movie_name, language)
