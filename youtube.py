@@ -23,7 +23,17 @@ class Youtube:
 			movieList.append(dict(id = m['id']['videoId'], title = m['snippet']['title'], description = m['snippet']['description']))
 
 		return movieList
+	
+	def movie_review_full_description(videoId):
+		youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, 
+								developerKey=DEVELOPER_KEY)
+		list_response = youtube.videos().list(
+			id=videoId,
+			part='snippet'
+		).execute()
+		return list_response['items'][0]['snippet']['description']
 
+#print(Youtube.movie_review_full_description('rwe9fKfnNS0'))
 # movieName = input("Enter movie name:")
 # try:
 # 	print(Youtube.movie_review_search(movieName))
